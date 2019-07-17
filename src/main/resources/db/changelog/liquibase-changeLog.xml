@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <changeSet id="01" author="chris">
+
+        <createSequence cycle="true"
+                        incrementBy="1"
+                        ordered="true"
+                        schemaName="public"
+                        sequenceName="HIBERNATE_SEQUENCE"
+                        />
+
+
+        <createTable tableName="Customer"
+                     remarks="A table to contain all customer">
+            <column name="id" type="int">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(255)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="LAST_NAME" type="varchar(255)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <!--createTable tableName="authors"
+                     remarks="A table to contain all the authors">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="books" baseColumnNames="author"
+                                 constraintName="author_fk"
+                                 referencedTableName="authors" referencedColumnNames="id"/ -->
+    </changeSet>
+
+</databaseChangeLog>
